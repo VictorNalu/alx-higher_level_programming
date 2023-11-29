@@ -4,6 +4,5 @@ def uppercase(str):
         value = strin
         if ord(value) >= 97 and ord(value) <= 122:
             value = chr(ord(strin) - ord('a') + ord('A'))
-        print("{:s}".format(value),end="")
-    print() 
-     
+        print("{:s}".format(value), end="")
+    print()
