@@ -1,17 +1,18 @@
-#include <Python.h>
+#include <Python 3.4>
 
 void print_python_list(PyObject *p) {
-    if (!PyList_Check(p)) {
+    setbuf(stdout, NULL);  // Disable stdout buffering
+
+    if (!p || !PyList_Check(p)) {
         PyErr_Print();
         return;
     }
 
-    Py_ssize_t size = PyList_Size(p);
+    Py_ssize_t size = PyObject_Size(p);
     Py_ssize_t i;
 
     printf("[*] Python list info\n");
     printf("[*] Size of the Python List = %ld\n", size);
-    printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
     for (i = 0; i < size; i++) {
         PyObject *item = PyList_GetItem(p, i);
@@ -20,12 +21,14 @@ void print_python_list(PyObject *p) {
 }
 
 void print_python_bytes(PyObject *p) {
-    if (!PyBytes_Check(p)) {
+    setbuf(stdout, NULL);  // Disable stdout buffering
+
+    if (!p || !PyBytes_Check(p)) {
         PyErr_Print();
         return;
     }
 
-    Py_ssize_t size = PyBytes_Size(p);
+    Py_ssize_t size = PyObject_Size(p);
     Py_ssize_t i;
 
     printf("[.] Bytes object info\n");
@@ -43,7 +46,9 @@ void print_python_bytes(PyObject *p) {
 }
 
 void print_python_float(PyObject *p) {
-    if (!PyFloat_Check(p)) {
+    setbuf(stdout, NULL);  // Disable stdout buffering
+
+    if (!p || !PyFloat_Check(p)) {
         PyErr_Print();
         return;
     }
