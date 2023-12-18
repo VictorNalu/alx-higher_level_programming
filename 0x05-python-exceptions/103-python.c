@@ -1,4 +1,4 @@
-#include <Python 3.4>
+#include <Python.h>
 
 void print_python_list(PyObject *p) {
     setbuf(stdout, NULL);  // Disable stdout buffering
