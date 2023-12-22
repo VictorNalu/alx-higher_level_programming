@@ -1,4 +1,7 @@
+#!/usr/bin/python3
+
 import math
+
 
 class MagicClass:
     """
@@ -24,7 +27,7 @@ class MagicClass:
         Raises:
             TypeError: If the provided magical radius is not a number.
         """
-        if type(magic_radius) is not int and type(magic_radius) is not float:
+        if type(magic_radius) not in (int, float):
             raise TypeError('magic_radius must be a number')
 
         self.__magic_radius = magic_radius
@@ -46,3 +49,4 @@ class MagicClass:
             float: The magical circumference of the shape.
         """
         return 2 * math.pi * self.__magic_radius
+
