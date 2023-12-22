@@ -1,52 +1,28 @@
 #!/usr/bin/python3
+"""Define a MagicClass that does exactly as the bytecode provided."""
 
 import math
 
 
 class MagicClass:
-    """
-    MagicClass: A class that represents a magical shape.
+    """Represent a circle."""
 
-    Attributes:
-        __magic_radius (int or float): The magical radius of the shape.
-
-    Methods:
-        __init__(self, magic_radius=0): Initializes the MagicClass instance with a given magical radius.
-        calculate_area(self): Calculates and returns the magical area of the shape.
-        calculate_circumference(self): Calculates and returns the magical circumference of the shape.
-    """
-
-    def __init__(self, magic_radius=0):
+    def __init__(self, radius=0):
         """
-        Initializes a new MagicClass instance.
+        Initialize a MagicClass.
 
         Args:
-            magic_radius (int or float): The magical radius of the shape.
-                                         Defaults to 0.
-
-        Raises:
-            TypeError: If the provided magical radius is not a number.
+            radius (float or int): The radius of the new MagicClass.
         """
-        if type(magic_radius) not in (int, float):
-            raise TypeError('magic_radius must be a number')
+        self.__radius = 0
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius must be a number")
+        self.__radius = radius
 
-        self.__magic_radius = magic_radius
+    def area(self):
+        """Return the area of the MagicClass."""
+        return self.__radius ** 2 * math.pi
 
-    def calculate_area(self):
-        """
-        Calculates and returns the magical area of the shape.
-
-        Returns:
-            float: The magical area of the shape.
-        """
-        return self.__magic_radius ** 2 * math.pi
-
-    def calculate_circumference(self):
-        """
-        Calculates and returns the magical circumference of the shape.
-
-        Returns:
-            float: The magical circumference of the shape.
-        """
-        return 2 * math.pi * self.__magic_radius
-
+    def circumference(self):
+        """Return the circumference of the MagicClass."""
+        return 2 * math.pi * self.__radius
