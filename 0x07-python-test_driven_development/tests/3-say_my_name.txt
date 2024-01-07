@@ -1,0 +1,72 @@
+=================================
+Test for module 3-say_my_name.py
+=================================
+
+This tests only one function: ``say_my_name(first_name, last_name="")``.
+
+first name
+==========
+	None value
+	------------
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name(None, "Onyebueke")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+
+::
+	integer value
+	-------------
+	>>> say_my_name(25, "Onyebueke")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+	
+	
+	Ideal value (str) with last_name default
+	----------------------------------------
+	>>> say_my_name("Victor")
+	My name is Onyebueke
+
+
+	Ideal value with last_name input
+	----------------------------------
+	>>> say_my_name("Victor", 'Onyebueke')
+	My name is Victor Onyebueke
+
+
+
+
+last_name
+=========
+::
+	last name omitted
+	----------------------
+	>>> say_my_name("Victor")
+	My name is Victor
+
+
+	None
+	-----
+	>>> say_my_name("Victor", None)
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+
+	integer value
+	--------------
+	>>> say_my_name("Victor", -98)
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+
+
+Ideal cases
+============
+::
+	>>> say_my_name(" Victor ", 'Onyebueke   123  ')
+	My name is Victor Onyebueke   123  
