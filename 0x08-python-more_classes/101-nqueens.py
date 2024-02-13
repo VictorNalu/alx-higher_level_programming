@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """solves the n-queen problem"""
 
 import sys
@@ -18,6 +19,7 @@ def is_safe(board, row, col, n):
         bool: True if it's safe to place a queen at the given position,
         False otherwise.
     """
+
     # Check if there is a queen in the same column
     for i in range(row):
         if board[i][col] == 1:
@@ -49,6 +51,7 @@ def solve_nqueens_util(board, row, n, solutions):
     Returns:
         None
     """
+    
     if row == n:
         queens_positions = []
         for r in range(n):
@@ -75,6 +78,7 @@ def solve_nqueens(n):
     Returns:
         None
     """
+
     board = [[0 for _ in range(n)] for _ in range(n)]
     solutions = []
     solve_nqueens_util(board, 0, n, solutions)
