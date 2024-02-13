@@ -20,7 +20,9 @@ def is_safe(board, row, col):
     """
     # Check if there is a queen in the same column or diagonals
     for i in range(row):
-        if board[i] == col or board[i] - i == col - row or board[i] + i == col + row:
+        if board[i] == col or \
+           board[i] - i == col - row or \
+           board[i] + i == col + row:
             return False
     return True
 
