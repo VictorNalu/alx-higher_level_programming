@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 """A module that loads, adds and saves arguments to a Python list"""
 
-import sys
-import os.path
+from sys import argv
 
-args = sys.argv[1:]
+args = argv[1:]
 
-save_file = __import__("5-save_to_json_file").save_to_    json_file
+save_file = __import__("5-save_to_json_file").save_to_json_file
 load_file = __import__("6-load_from_json_file").load_from_json_file
 
-json_list = []
-if os.path.exists("./add_item.json"):
-    json_list = load_from_json_file("add_item.json")
+try:
+    json_list = load_file("add_item.json")
+except (ValueError, FileNotFoundError):
+    json_list = []
 
-save_file(json_list + args, "add_item.json")
+json_list.extend(args)
+
+save_file(json_list, "add_item.json")
