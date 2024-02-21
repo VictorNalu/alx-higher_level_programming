@@ -1,25 +1,20 @@
 #!/usr/bin/python3
-"""A module that loads, adds and saves arguments to a Python list"""
 
 from sys import argv
-from json import dump, load
 
-
-def save_to_json_file(data, filename):
-    with open(filename, "w") as file:
-        dump(data, file)
-
-
-def load_from_json_file(filename):
-    with open(filename, "r") as file:
-        return load(file)
+from 5-save_to_json_file import save_to_json_file
+from 6-load_from_json_file import load_from_json_file
 
 
 def main():
+
     # Extract command-line arguments excluding the script name
     arguments = argv[1:]
 
-    # Load existing items from add_item.json if it exists, otherwise initialize an empty list
+    """Load existing items from add_item.json
+    if it exists, otherwise initialize an empty list
+    """
+
     try:
         items = load_from_json_file("add_item.json")
     except FileNotFoundError:
