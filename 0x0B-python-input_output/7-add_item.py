@@ -1,31 +1,17 @@
 #!/usr/bin/python3
-
+"""Module that loads, adds and saves arguments to a Python list"""
 from sys import argv
 
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
 
+load_file = __import__('6-load_from_json_file').load_from_json_file
+save_file = __import__('5-save_to_json_file').save_to_json_file
 
-def main():
+try:
+    json_list = load_file('add_item.json')
+except (ValueError, FileNotFoundError):
+    json_list = []
 
-    # Extract command-line arguments excluding the script name
-    arguments = argv[1:]
+for item in argv[1:]:
+    json_list.append(item)
 
-    """Load existing items from add_item.json
-    if it exists, otherwise initialize an empty list
-    """
-
-    try:
-        items = load_from_json_file("add_item.json")
-    except FileNotFoundError:
-        items = []
-
-    # Add the new arguments to the existing list
-    items.extend(arguments)
-
-    # Save the updated list to add_item.json
-    save_to_json_file(items, "add_item.json")
-
-
-if __name__ == "__main__":
-    main()
+save_file(json_list, 'add_item.json')
