@@ -9,9 +9,10 @@ import turtle
 class Base:
     """Class that defines properties of Base.
 
-     Attributes:
-        id (int): Identity of each instance.
+    Attributes:
+       id (int): Identity of each instance.
     """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -59,12 +60,12 @@ class Base:
 
         lists = cls.to_json_string(list_dic)
 
-        with open(filename, 'w') as f:
+        with open(filename, "w") as f:
             f.write(lists)
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns the list of the JSON string representation json_string.
+        """Returns the list of the JSON string representation json_string.
 
         Args:
             json_string (str): _description_
@@ -74,7 +75,7 @@ class Base:
         """
         if json_string is None or len(json_string) == 0:
             return []
-        return(json.loads(json_string))
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -104,7 +105,7 @@ class Base:
         dummy.update(**dictionary)
 
         # print("cls type --> {}".format(type(cls)))
-        return(dummy)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
@@ -126,7 +127,7 @@ class Base:
         if os.path.exists(filename) is False:
             return []
 
-        with open(filename, 'r') as f:
+        with open(filename, "r") as f:
             list_str = f.read()
 
         list_cls = cls.from_json_string(list_str)
@@ -146,7 +147,7 @@ class Base:
             list_objs (list): objects.
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline="") as f:
+        with open(filename, "w", newline="") as f:
             writer = csv.writer(f)
             if cls.__name__ == "Rectangle":
                 for i in list_objs:
@@ -165,25 +166,33 @@ class Base:
         filename = cls.__name__ + ".csv"
         my_obj = []
         try:
-            with open(filename, 'r') as f:
+            with open(filename, "r") as f:
                 csv_reader = csv.reader(f)
                 for elm in csv_reader:
                     if cls.__name__ == "Rectangle":
-                        dictionary = {"id": int(elm[0]), "width": int(elm[1]),
-                                      "height": int(elm[2]), "x": int(elm[3]),
-                                      "y": int(elm[4])}
+                        dictionary = {
+                            "id": int(elm[0]),
+                            "width": int(elm[1]),
+                            "height": int(elm[2]),
+                            "x": int(elm[3]),
+                            "y": int(elm[4]),
+                        }
                     elif cls.__name__ == "Square":
-                        dictionary = {"id": int(elm[0]), "size": int(elm[1]),
-                                      "x": int(elm[2]), "y": int(elm[3])}
+                        dictionary = {
+                            "id": int(elm[0]),
+                            "size": int(elm[1]),
+                            "x": int(elm[2]),
+                            "y": int(elm[3]),
+                        }
                     obj = cls.create(**dictionary)
                     my_obj.append(obj)
-        except(Exception):
+        except Exception:
             pass
-        return(my_obj)
+        return my_obj
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ Opens a window and draws all the Rectangles and Squares
+        """Opens a window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 

@@ -126,18 +126,18 @@ class Rectangle(Base):
 
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k == 'id':
+                if k == "id":
                     if v is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = v
-                elif k == 'width':
+                elif k == "width":
                     self.width = v
-                elif k == 'height':
+                elif k == "height":
                     self.height = v
-                elif k == 'x':
+                elif k == "x":
                     self.x = v
-                elif k == 'y':
+                elif k == "y":
                     self.y = v
 
     def to_dictionary(self):
@@ -147,12 +147,11 @@ class Rectangle(Base):
             "width": self.width,
             "height": self.height,
             "x": self.x,
-            "y": self.y
+            "y": self.y,
         }
 
     def __str__(self):
         """Return the print() and str() representation of the Rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
-
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
