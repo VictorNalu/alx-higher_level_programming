@@ -3,7 +3,7 @@
 
 
 import unittest
-import models.base
+from models.base import Base
 
 
 class TestDoctest(unittest.TestCase):
@@ -11,6 +11,6 @@ class TestDoctest(unittest.TestCase):
 
     def test_docstring(self):
         """Checks if docstring is present"""
-        self.assertIsNotNone(models.base.__doc__)
+        self.assertIsNotNone(Base.__doc__)
 
         
