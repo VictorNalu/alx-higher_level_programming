@@ -140,7 +140,6 @@ class Rectangle(Base):
         for row in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-
     def __str__(self):
         """String representation of the Rectangle instance."""
         return (
