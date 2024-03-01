@@ -139,8 +139,11 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def __str__(self):
-        """Override the __str__method"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        """String representation of the Rectangle instance."""
+        return (
+            f"[Rectangle] ({self.id}) {self._Rectangle__x}/{self._Rectangle__y} - "
+            f"{self._Rectangle__width}/{self._Rectangle__height}"
+        )
 
     def update(self, *args, **kwargs):
         """ "
@@ -168,7 +171,7 @@ class Rectangle(Base):
                     raise TypeError(f"Invalid attribute: {key}")
 
     def to_dictionary(self):
-        """Return the dictionary representation of the Square."""
+        """Return the dictionary representation of the Rectangle."""
         return {
             "id": self.id,
             "width": self.width,

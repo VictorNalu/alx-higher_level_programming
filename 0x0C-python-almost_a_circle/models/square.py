@@ -24,28 +24,15 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Assigns attributes"""
+
+        attrs = ["id", "size", "x", "y"]
         if args:
-            # If positional arguments exist, update attributes based on their order
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.size = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
-        else:
-            # If no positional arguments, update attributes based on keyword arguments
-            if "size" in kwargs:
-                self.size = kwargs["size"]
-            else:
-                raise ValueError("Size must be provided")
+            for attr, arg in zip(attrs, args):
+                setattr(self, attr, arg)
+        elif kwargs:
             for key, value in kwargs.items():
-                if key != "size":
-                    if hasattr(self, key):
-                        setattr(self, key, value)
-                    else:
-                        raise TypeError(f"Invalid attribute: {key}")
+                if key in attrs:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """Return the dictionary representation of the Square."""
@@ -53,4 +40,4 @@ class Square(Rectangle):
 
     def __str__(self):
         """Override the __str__method"""
-        return f"[Square] ({self.id}) {self.__x}/{self.__y} - {self.__width}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
