@@ -135,8 +135,11 @@ class Rectangle(Base):
 
     def display(self):
         """Prints in stdout"""
-        for _ in range(self.__height):
-            print("#" * self.__width)
+        print("\n" * self.y, end="")
+        # Print the rectangle with 'x' spaces before each line
+        for row in range(self.height):
+            print(" " * self.x + "#" * self.width)
+
 
     def __str__(self):
         """String representation of the Rectangle instance."""
