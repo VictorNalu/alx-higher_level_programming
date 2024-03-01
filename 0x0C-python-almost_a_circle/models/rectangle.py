@@ -142,7 +142,7 @@ class Rectangle(Base):
         """String representation of the Rectangle instance."""
         return (
             f"[Rectangle] ({self.id}) {self._Rectangle__x}"
-            f"/{self._Rectangle__y} -"
+            f"/{self._Rectangle__y} - "
             f"{self._Rectangle__width}/{self._Rectangle__height}"
         )
 
