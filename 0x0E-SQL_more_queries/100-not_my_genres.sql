@@ -1,6 +1,5 @@
--- Lists all genres of the database hbtn_0d_tvshows
--- not linked to the show Dexter.
--- Records are sorted by ascending genre name.
+-- Lists all shows of the database hbtn_0d_tvshows that
+-- have at least one genre
 SELECT DISTINCT `name`
   FROM `tv_genres` AS g
        INNER JOIN `tv_show_genres` AS s
