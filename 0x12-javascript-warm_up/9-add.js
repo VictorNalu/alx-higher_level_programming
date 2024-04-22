@@ -13,14 +13,8 @@ if (args.length === 2) {
   // Convert arguments to integers
   const num1 = parseInt(args[0]);
   const num2 = parseInt(args[1]);
-
-  // Check if both conversions are successful
-  if (!isNaN(num1) && !isNaN(num2)) {
-    // Call the add function and print the result
-    console.log(add(num1, num2));
-  } else {
-    console.log('Invalid input: both arguments must be integers');
-  }
+  const m = add(num1, num2);
+  console.log(m);
 } else {
-  console.log('Missing arguments: provide two integers');
+  console.log('NaN');
 }
