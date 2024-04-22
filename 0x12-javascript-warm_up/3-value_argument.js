@@ -1,11 +1,12 @@
 #!/usr/bin/node
-const { argv } = require('process'); // Changed 'node:process' to 'process'
+
+const { argv } = require('process');
 
 // Extract command-line arguments excluding the first two (which are node and the script file)
 const args = argv.slice(2);
 
-if (args.length === 0) {
+if (args[0] === undefined) {
   console.log('No argument');
-} else if (args.length === 1) {
-  console.log(argv[2]);
+} else {
+  console.log(args[0]);
 }
