@@ -19,9 +19,8 @@ if (args.length === 2) {
     // Call the add function and print the result
     console.log(add(num1, num2));
   } else {
-    console.log('NaN');
+    console.log('Invalid input: both arguments must be integers');
   }
 } else {
-  console.log('NaN');
+  console.log('Missing arguments: provide two integers');
 }
-
