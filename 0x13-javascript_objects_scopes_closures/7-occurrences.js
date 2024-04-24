@@ -1,10 +1,10 @@
 #!/usr/bin/node
-exports.nbOccurrences = function (list, searchElement) {
-  let count = 0;
+exports.nbOccurences = function (list, searchElement) {
+  let nOccurrences = 0;
   for (let i = 0; i < list.length; i++) {
-    if (list[i] === searchElement) {
-      count++;
+    if (searchElement === list[i]) {
+      nOccurrences++;
     }
   }
-  return count;
+  return nOccurrences;
 };
