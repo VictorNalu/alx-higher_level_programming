@@ -9,14 +9,7 @@ import MySQLdb
 
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
-    if len(sys.argv) != 5:
-        print(
-            "Usage: {} username password database_name state_name"
-            .format(sys.argv[0])
-        )
-        sys.exit(1)
 
-    # Connect to MySQL server running on localhost at port 3306
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -30,11 +23,13 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Prepare SQL query with user input
-    state_name = sys.argv[4]
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+
+    query = """
+SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC"""
+    query = query.format(sys.argv[4])
 
     # Execute SQL query with user input
-    cursor.execute(query, (state_name,))
+    cursor.execute(query)
 
     # Fetch all rows from the result set
     states = cursor.fetchall()
