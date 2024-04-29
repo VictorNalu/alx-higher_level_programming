@@ -5,13 +5,6 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Check if the correct number of arguments is provided
-    if len(sys.argv) != 5:
-        print(
-            "Usage: {} username password database_name state_name".format(sys.argv[0])
-        )
-        sys.exit(1)
-
     # Connect to MySQL server running on localhost at port 3306
     conn = MySQLdb.connect(
         host="localhost",
