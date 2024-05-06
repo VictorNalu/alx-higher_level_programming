@@ -8,6 +8,11 @@ from model_state import Base, State
 from model_city import City
 
 if __name__ == "__main__":
+    # Check if correct number of arguments are provided
+    if len(sys.argv) != 4:
+        print("Usage: {} username password database".format(sys.argv[0]))
+        sys.exit(1)
+
     # Connect to MySQL server
     username = sys.argv[1]
     password = sys.argv[2]
@@ -26,7 +31,10 @@ if __name__ == "__main__":
 
     # Display results
     for city in cities:
-        state_name = session.query(State).filter(State.id == city.state_id).first().name
+        state_name = session.query(State)\
+                            .filter(State.id == city.state_id)\
+                            .first()\
+                            .name
         print("{}: ({}) {}".format(state_name, city.id, city.name))
 
     session.close()
