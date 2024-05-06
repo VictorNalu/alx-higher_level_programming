@@ -22,7 +22,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute SQL query to select states with name starting with 'N'
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states :wqORDER BY id ASC")
 
     # Fetch all rows from the result set
     states = cursor.fetchall()
