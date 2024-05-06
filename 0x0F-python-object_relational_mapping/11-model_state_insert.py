@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Script that adds the State object "Louisiana" to the database hbtn_0e_6_usa"""
+"""
+Script that adds the State object "Louisiana"
+to the database hbtn_0e_6_usa
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -8,7 +11,10 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     # Connect to MySQL server
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
             username, password, database
