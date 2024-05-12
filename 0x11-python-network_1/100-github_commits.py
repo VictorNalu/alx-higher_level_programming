@@ -25,8 +25,9 @@ if __name__ == "__main__":
 
     # Check if response status code is successful
     if response.status_code == 200:
-        # Loop through each commit in the response
-        for commit in response.json():
+        commits = response.json()
+        # print the 10 most current commits in the response
+        for commit in commits[:10]:
             # Extract commit hash and author name
             commit_hash = commit["sha"]
             author_name = commit["commit"]["author"]["name"]
